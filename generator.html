@@ -334,9 +334,14 @@ Keluarga Bapak Fulan"></textarea>
                                 readonly>
 
                             <button
-                                onclick="salinLink(this, '${link.replace(/'/g, "\\'")}')">
-                                Salin Link
-                            </button>
+    onclick="salinLink(this, '${link.replace(/'/g, "\\'")}')">
+    Salin Link
+</button>
+
+<button
+    onclick="kirimWhatsApp('${encodeURIComponent(nama)}', '${link.replace(/'/g, "\\'")}')">
+    Kirim WhatsApp
+</button>
 
                         </div>
 
@@ -386,7 +391,30 @@ Keluarga Bapak Fulan"></textarea>
                 });
 
         }
+function kirimWhatsApp(nama, link) {
 
+    const pesan =
+        "Assalamu'alaikum " +
+        decodeURIComponent(nama) +
+        ",%0A%0A" +
+
+        "Dengan penuh kebahagiaan, kami mengundang " +
+        decodeURIComponent(nama) +
+        " untuk hadir dalam acara Walimatul Ursy Zain & Luthfia.%0A%0A" +
+
+        "Silakan membuka undangan melalui link berikut:%0A" +
+        link +
+        "%0A%0A" +
+
+        "Jazakumullahu khairan.%0A" +
+        "Wassalamu'alaikum warahmatullahi wabarakatuh";
+
+    const url =
+        "https://wa.me/?text=" + pesan;
+
+    window.open(url, "_blank");
+
+}
 
         function hapusSemua() {
 
