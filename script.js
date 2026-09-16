@@ -627,3 +627,20 @@ document.addEventListener(
 
     }
 );
+// =========================
+// NAMA TAMU OTOMATIS
+// =========================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const namaTamu = params.get("to");
+
+    const elemenNama = document.getElementById("namaTamu");
+
+    if (namaTamu && elemenNama) {
+        elemenNama.textContent = namaTamu;
+    }
+
+});
