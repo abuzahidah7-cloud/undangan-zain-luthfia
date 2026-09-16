@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Generator Link Undangan</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            background: #fff5f6;
+
+            color: #4a2025;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 700px;
+
+            margin: 30px auto;
+
+            padding: 30px;
+
+            background: white;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        h1 {
+            margin-top: 0;
+
+            text-align: center;
+
+            color: #842536;
+        }
+
+        .keterangan {
+            text-align: center;
+
+            color: #6d3b43;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+        textarea {
+            width: 100%;
+
+            min-height: 180px;
+
+            padding: 15px;
+
+            border:
+                1px solid #efd0d5;
+
+            border-radius: 15px;
+
+            font-size: 15px;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            resize: vertical;
+
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #b34c5e;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(179, 76, 94, 0.10);
+        }
+
+        .button-container {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 12px 22px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #842536;
+
+            color: white;
+
+            font-size: 14px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #6f1e2d;
+        }
+
+        .hasil {
+            margin-top: 30px;
+        }
+
+        .hasil h2 {
+            color: #842536;
+
+            font-size: 22px;
+        }
+
+        .item {
+            margin-bottom: 15px;
+
+            padding: 15px;
+
+            background: #fff8f9;
+
+            border:
+                1px solid #efd0d5;
+
+            border-radius: 15px;
+        }
+
+        .nama {
+            font-weight: bold;
+
+            color: #842536;
+
+            margin-bottom: 8px;
+        }
+
+        .link-box {
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .link-box input {
+            flex: 1;
+
+            min-width: 0;
+
+            padding: 10px;
+
+            border:
+                1px solid #ddd;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+        }
+
+        .link-box button {
+            white-space: nowrap;
+
+            padding:
+                10px 15px;
+        }
+
+        .kosong {
+            text-align: center;
+
+            color: #9a777d;
+        }
+
+        @media (max-width: 600px) {
+
+            .box {
+                padding: 20px;
+            }
+
+            .link-box {
+                flex-direction: column;
+            }
+
+            .link-box button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>
+            Generator Link Undangan
+        </h1>
+
+        <p class="keterangan">
+            Masukkan satu nama tamu per baris.
+            <br>
+            Contoh: Bapak Ahmad
+        </p>
+
+        <textarea
+            id="daftarNama"
+            placeholder="Bapak Ahmad
+Ibu Siti
+Bapak Hasan
+Keluarga Bapak Fulan"></textarea>
+
+        <div class="button-container">
+
+            <button onclick="buatSemuaLink()">
+                Buat Semua Link
+            </button>
+
+            <button onclick="hapusSemua()">
+                Hapus
+            </button>
+
+        </div>
+
+        <div
+            class="hasil"
+            id="hasil">
+
+            <p class="kosong">
+                Link akan muncul di sini.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function buatSemuaLink() {
+
+            const textarea =
+                document.getElementById(
+                    "daftarNama"
+                );
+
+            const hasil =
+                document.getElementById(
+                    "hasil"
+                );
+
+            const teks =
+                textarea.value.trim();
+
+            if (!teks) {
+
+                alert(
+                    "Silakan masukkan nama tamu terlebih dahulu."
+                );
+
+                return;
+            }
+
+            const daftarNama =
+                teks
+                .split("\n")
+                .map(function(nama) {
+
+                    return nama.trim();
+
+                })
+                .filter(function(nama) {
+
+                    return nama !== "";
+
+                });
+
+
+            hasil.innerHTML =
+                "<h2>Hasil Link Undangan</h2>";
+
+
+            daftarNama.forEach(
+                function(nama, index) {
+
+                    const link =
+                        "https://abuzahidah7-cloud.github.io/undangan-zain-luthfia/?to="
+                        + encodeURIComponent(nama);
+
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+                    item.className =
+                        "item";
+
+
+                    item.innerHTML = `
+
+                        <div class="nama">
+                            ${index + 1}. ${escapeHTML(nama)}
+                        </div>
+
+                        <div class="link-box">
+
+                            <input
+                                type="text"
+                                value="${link}"
+                                readonly>
+
+                            <button
+                                onclick="salinLink(this, '${link.replace(/'/g, "\\'")}')">
+                                Salin Link
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    hasil.appendChild(item);
+
+                }
+            );
+
+        }
+
+
+        function salinLink(
+            tombol,
+            link
+        ) {
+
+            navigator.clipboard
+                .writeText(link)
+                .then(function() {
+
+                    const teksAwal =
+                        tombol.textContent;
+
+                    tombol.textContent =
+                        "Tersalin ✓";
+
+                    setTimeout(
+                        function() {
+
+                            tombol.textContent =
+                                teksAwal;
+
+                        },
+                        1500
+                    );
+
+                })
+                .catch(function() {
+
+                    alert(
+                        "Link gagal disalin. Silakan salin secara manual."
+                    );
+
+                });
+
+        }
+
+
+        function hapusSemua() {
+
+            document.getElementById(
+                "daftarNama"
+            ).value = "";
+
+            document.getElementById(
+                "hasil"
+            ).innerHTML = `
+                <p class="kosong">
+                    Link akan muncul di sini.
+                </p>
+            `;
+
+        }
+
+
+        function escapeHTML(teks) {
+
+            return teks
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
