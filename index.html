@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Undangan Walimatul Ursy - Zain & Luthfia</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MUSIK -->
+    <audio id="musikUndangan" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- TOMBOL MUSIK -->
+    <button id="tombolMusik" class="tombol-musik" onclick="toggleMusik()">
+        🔊
+    </button>
+
+
+    <!-- =========================
+         HALAMAN PEMBUKA
+    ========================== -->
+
+    <section class="cover" id="cover">
+
+        <div class="cover-content">
+
+            <p class="small-title">
+                UNDANGAN
+            </p>
+
+            <h1>
+                Walimatul Ursy
+            </h1>
+
+            <p class="kepada">
+                Kepada Yth.<br>
+                Bapak/Ibu/Saudara/i
+            </p>
+
+            <h2>
+                Zain Samuroh<br>
+                <span>&</span><br>
+                Luthfia Sholichah Salsabiila
+            </h2>
+
+            <button onclick="bukaUndangan()">
+                Buka Undangan
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ISI UNDANGAN
+    ========================== -->
+
+    <main id="isiUndangan" class="hidden">
+
+
+        <!-- PEMBUKA -->
+
+        <section class="section pembuka">
+
+            <p class="basmalah">
+                بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+            </p>
+
+            <p>
+                Assalamu'alaikum Warahmatullahi Wabarakatuh
+            </p>
+
+            <p>
+                Dengan memohon rahmat dan ridho Allah SWT,
+                kami bermaksud mengundang Bapak/Ibu/Saudara/i
+                untuk menghadiri acara walimatul ursy putra-putri kami.
+            </p>
+
+        </section>
+
+
+        <!-- MEMPELAI -->
+
+        <section class="section mempelai">
+
+            <p class="section-label">
+                THE BRIDE & GROOM
+            </p>
+
+            <div class="foto-mempelai">
+                <img src="pria.jpg" alt="Zain Samuroh">
+            </div>
+
+            <h2>
+                Zain Samuroh
+            </h2>
+
+            <p>
+                Putra dari Bapak Basri<br>
+                & Ibu Waginah
+            </p>
+
+
+            <div class="and">
+                &
+            </div>
+
+
+            <div class="foto-mempelai">
+                <img src="wanita.jpg" alt="Luthfia Sholichah Salsabiila">
+            </div>
+
+            <h2>
+                Luthfia<br>
+                Sholichah Salsabiila
+            </h2>
+
+            <p>
+                Putri dari Bapak Fajar Salim<br>
+                & Ibu Nur Khasanah
+            </p>
+
+        </section>
+
+
+        <!-- AKAD -->
+
+        <section class="section acara">
+
+            <p class="section-label">
+                WAKTU & TEMPAT
+            </p>
+
+            <h2>
+                Akad Nikah
+            </h2>
+
+            <div class="acara-box">
+
+                <div class="detail-acara">
+
+                    <div class="icon-acara">
+                        📅
+                    </div>
+
+                    <h3>
+                        Senin, 7 Desember 2026
+                    </h3>
+
+                    <p>
+                        08.00 – 09.00 WIB
+                    </p>
+
+                </div>
+
+
+                <div class="detail-acara">
+
+                    <div class="icon-acara">
+                        📍
+                    </div>
+
+                    <h3>
+                        Kediaman Mempelai Wanita
+                    </h3>
+
+                    <p>
+                        Gendungan RT 02/RW 06<br>
+                        Tawangsari, Sukoharjo
+                    </p>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Gendungan%20RT%2002%2FRW%2006%20Tawangsari%20Sukoharjo"
+                        target="_blank"
+                        class="maps-button">
+                        📍 Lihat Lokasi
+                    </a>
+
+                </div>
+
+
+                <!-- COUNTDOWN -->
+
+                <div class="countdown">
+
+                    <p class="countdown-title">
+                        Menuju Hari Bahagia
+                    </p>
+
+                    <div class="countdown-container">
+
+                        <div class="countdown-box">
+                            <span id="days">0</span>
+                            <small>Hari</small>
+                        </div>
+
+                        <div class="countdown-box">
+                            <span id="hours">0</span>
+                            <small>Jam</small>
+                        </div>
+
+                        <div class="countdown-box">
+                            <span id="minutes">0</span>
+                            <small>Menit</small>
+                        </div>
+
+                        <div class="countdown-box">
+                            <span id="seconds">0</span>
+                            <small>Detik</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RSVP -->
+
+        <section class="section rsvp">
+
+            <p class="section-label">
+                KONFIRMASI KEHADIRAN
+            </p>
+
+            <h2>
+                RSVP
+            </h2>
+
+            <p>
+                Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i
+                untuk membantu kami mempersiapkan acara.
+            </p>
+
+            <div class="rsvp-form">
+
+                <input
+                    type="text"
+                    id="namaTamu"
+                    placeholder="Nama Anda">
+
+                <select id="statusKehadiran">
+
+                    <option value="">
+                        Pilih Kehadiran
+                    </option>
+
+                    <option value="Hadir">
+                        Hadir
+                    </option>
+
+                    <option value="Tidak Hadir">
+                        Tidak Hadir
+                    </option>
+
+                </select>
+
+                <button
+                    type="button"
+                    onclick="kirimRSVP()"
+                    class="whatsapp-button">
+
+                    💬 Kirim Konfirmasi
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALERI FOTO -->
+
+        <section class="section galeri">
+
+            <p class="section-label">
+                OUR MOMENTS
+            </p>
+
+            <h2>
+                Galeri Foto
+            </h2>
+
+            <p>
+                Beberapa momen yang kami abadikan
+                menuju hari bahagia.
+            </p>
+
+            <div class="galeri-container">
+
+                <div class="foto-galeri">
+                    <img
+                        src="galeri1.jpg"
+                        alt="Foto Galeri 1"
+                        onclick="bukaFoto(this.src)">
+                </div>
+
+                <div class="foto-galeri">
+                    <img
+                        src="galeri2.jpg"
+                        alt="Foto Galeri 2"
+                        onclick="bukaFoto(this.src)">
+                </div>
+
+                <div class="foto-galeri">
+                    <img
+                        src="galeri3.jpg"
+                        alt="Foto Galeri 3"
+                        onclick="bukaFoto(this.src)">
+                </div>
+
+                <div class="foto-galeri">
+                    <img
+                        src="galeri4.jpg"
+                        alt="Foto Galeri 4"
+                        onclick="bukaFoto(this.src)">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LIGHTBOX -->
+
+        <div
+            id="lightbox"
+            class="lightbox"
+            onclick="tutupFoto()">
+
+            <span class="tutup-lightbox">
+                &times;
+            </span>
+
+            <img
+                id="fotoLightbox"
+                src=""
+                alt="Foto">
+
+        </div>
+
+
+        <!-- AMPLOP DIGITAL -->
+
+        <section class="section amplop">
+
+            <p class="section-label">
+                AMPLOP DIGITAL
+            </p>
+
+            <h2>
+                Tanda Kasih
+            </h2>
+
+            <p>
+                Bagi Bapak/Ibu/Saudara/i yang ingin memberikan
+                tanda kasih secara digital, dapat melalui:
+            </p>
+
+            <div class="rekening-box">
+
+                <div class="icon-rekening">
+                    💳
+                </div>
+
+                <h3>
+                    SeaBank
+                </h3>
+
+                <p class="nama-rekening">
+                    Zain Samuroh
+                </p>
+
+                <div class="nomor-rekening">
+
+                    <span id="nomorRekening">
+                        901879267399
+                    </span>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="copy-button"
+                    onclick="salinRekening()">
+
+                    📋 Salin Nomor Rekening
+
+                </button>
+
+            </div>
+
+            <p class="terima-kasih">
+                Terima kasih atas doa dan tanda kasih
+                yang diberikan. Semoga menjadi keberkahan
+                bagi kita semua. 🤲
+            </p>
+
+        </section>
+
+
+        <!-- UCAPAN & DOA TAMU -->
+
+        <section class="section ucapan">
+
+            <p class="section-label">
+                UCAPAN & DOA
+            </p>
+
+            <h2>
+                Kirim Ucapan
+            </h2>
+
+            <p>
+                Berikan doa dan ucapan terbaik
+                untuk kedua mempelai.
+            </p>
+
+            <div class="ucapan-form">
+
+                <input
+                    type="text"
+                    id="namaUcapan"
+                    placeholder="Nama Anda">
+
+                <textarea
+                    id="isiUcapan"
+                    placeholder="Tulis ucapan dan doa..."
+                    rows="5"></textarea>
+
+                <button
+                    type="button"
+                    class="whatsapp-button"
+                    onclick="kirimUcapan()">
+
+                    💌 Kirim Ucapan
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOA -->
+
+        <section class="section doa">
+
+            <p class="arab">
+                بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا
+                وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+            </p>
+
+            <p>
+                Semoga Allah memberikan keberkahan kepada kalian
+                dan mengumpulkan kalian berdua dalam kebaikan.
+            </p>
+
+        </section>
+
+
+        <!-- DAFTAR UCAPAN TAMU -->
+
+        <section class="section daftar-ucapan">
+
+            <p class="section-label">
+                UCAPAN TAMU
+            </p>
+
+            <h2>
+                Doa & Ucapan
+            </h2>
+
+            <div id="daftarUcapan">
+            </div>
+
+        </section>
+
+
+        <!-- PENUTUP -->
+
+        <section class="section penutup">
+
+            <p>
+                Merupakan suatu kehormatan dan kebahagiaan
+                bagi kami apabila Bapak/Ibu/Saudara/i berkenan
+                hadir dan memberikan doa restu.
+            </p>
+
+            <p>
+                Atas kehadiran dan doa restunya,
+                kami mengucapkan terima kasih.
+            </p>
+
+            <p>
+                Wassalamu'alaikum Warahmatullahi Wabarakatuh
+            </p>
+
+            <h2>
+                Zain & Luthfia
+            </h2>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        // =========================
+        // BUKA UNDANGAN
+        // =========================
+
+        function bukaUndangan() {
+
+            document.getElementById("cover").style.display = "none";
+
+            document.getElementById("isiUndangan")
+                .classList.remove("hidden");
+
+            const musik =
+                document.getElementById("musikUndangan");
+
+            musik.play().catch(function(error) {
+                console.log(
+                    "Musik belum dapat diputar:",
+                    error
+                );
+            });
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        // =========================
+        // TOMBOL PLAY / PAUSE MUSIK
+        // =========================
+
+        function toggleMusik() {
+
+            const musik =
+                document.getElementById("musikUndangan");
+
+            const tombol =
+                document.getElementById("tombolMusik");
+
+            if (musik.paused) {
+
+                musik.play();
+
+                tombol.innerText = "🔊";
+
+            } else {
+
+                musik.pause();
+
+                tombol.innerText = "🔇";
+
+            }
+
+        }
+
+
+        // =========================
+        // COUNTDOWN AKAD
+        // =========================
+
+        const tanggalAkad = new Date(
+            "2026-12-07T08:00:00+07:00"
+        ).getTime();
+
+
+        function jalankanCountdown() {
+
+            const sekarang =
+                new Date().getTime();
+
+            const selisih =
+                tanggalAkad - sekarang;
+
+
+            if (selisih <= 0) {
+
+                document.getElementById("days").innerText = "0";
+                document.getElementById("hours").innerText = "0";
+                document.getElementById("minutes").innerText = "0";
+                document.getElementById("seconds").innerText = "0";
+
+                return;
+
+            }
+
+
+            const hari = Math.floor(
+                selisih /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+            const jam = Math.floor(
+                (selisih %
+                    (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+
+            const menit = Math.floor(
+                (selisih %
+                    (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+
+            const detik = Math.floor(
+                (selisih %
+                    (1000 * 60)) /
+                1000
+            );
+
+
+            document.getElementById("days").innerText = hari;
+            document.getElementById("hours").innerText = jam;
+            document.getElementById("minutes").innerText = menit;
+            document.getElementById("seconds").innerText = detik;
+
+        }
+
+
+        // Jalankan countdown pertama kali
+        jalankanCountdown();
+
+        // Update setiap 1 detik
+        setInterval(jalankanCountdown, 1000);
+
+    </script>
+
+
+    <!-- SCRIPT UTAMA -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
