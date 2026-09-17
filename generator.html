@@ -227,11 +227,9 @@
         </p>
 
         <textarea
-            id="daftarNama"
-            placeholder="Bapak Ahmad
-Ibu Siti
-Bapak Hasan
-Keluarga Bapak Fulan"></textarea>
+    id="daftarNama"
+    placeholder="Masukkan nama dan nomor WhatsApp&#10;Contoh:&#10;Bapak Ahmad | 08123456789&#10;Ibu Siti | 08234567890"
+></textarea>
 
         <div class="button-container">
 
@@ -264,143 +262,133 @@ Keluarga Bapak Fulan"></textarea>
 
     <script>
 
-        function buatSemuaLink() {
+function buatSemuaLink() {
 
-            const textarea =
-                document.getElementById(
-                    "daftarNama"
-                );
+    const textarea =
+        document.getElementById("daftarNama");
 
-            const hasil =
-                document.getElementById(
-                    "hasil"
-                );
+    const hasil =
+        document.getElementById("hasil");
 
-            const teks =
-                textarea.value.trim();
+    const teks =
+        textarea.value.trim();
 
-            if (!teks) {
+    if (!teks) {
 
-                alert(
-                    "Silakan masukkan nama tamu terlebih dahulu."
-                );
+        alert(
+            "Silakan masukkan nama dan nomor WhatsApp terlebih dahulu."
+        );
 
-                return;
-            }
+        return;
+    }
 
-            const daftarNama =
-                teks
-                .split("\n")
-                .map(function(nama) {
+    const daftarTamu =
+        teks
+        .split("\n")
+        .map(function(baris) {
 
-                    return nama.trim();
+            const bagian =
+                baris.split("|");
 
-                })
-                .filter(function(nama) {
+            const nama =
+                bagian[0]
+                ? bagian[0].trim()
+                : "";
 
-                    return nama !== "";
+            const nomor =
+                bagian[1]
+                ? bagian[1].trim()
+                : "";
 
-                });
+            return {
+                nama: nama,
+                nomor: nomor
+            };
 
+        })
+        .filter(function(tamu) {
 
-            hasil.innerHTML =
-                "<h2>Hasil Link Undangan</h2>";
+            return tamu.nama !== "";
 
-
-            daftarNama.forEach(
-                function(nama, index) {
-
-                    const link =
-                        "https://abuzahidah7-cloud.github.io/undangan-zain-luthfia/?to="
-                        + encodeURIComponent(nama);
-
-
-                    const item =
-                        document.createElement(
-                            "div"
-                        );
-
-                    item.className =
-                        "item";
+        });
 
 
-                    item.innerHTML = `
-
-                        <div class="nama">
-                            ${index + 1}. ${escapeHTML(nama)}
-                        </div>
-
-                        <div class="link-box">
-
-                            <input
-                                type="text"
-                                value="${link}"
-                                readonly>
-
-                            <button
-    onclick="salinLink(this, '${link.replace(/'/g, "\\'")}')">
-    Salin Link
-</button>
-
-<button
-    onclick="kirimWhatsApp('${encodeURIComponent(nama)}', '${link.replace(/'/g, "\\'")}')">
-    Kirim WhatsApp
-</button>
-
-                        </div>
-
-                    `;
+    hasil.innerHTML =
+        "<h2>Hasil Link Undangan</h2>";
 
 
-                    hasil.appendChild(item);
+    daftarTamu.forEach(
+        function(tamu, index) {
 
-                }
-            );
+            const link =
+                "https://abuzahidah7-cloud.github.io/undangan-zain-luthfia/?to="
+                + encodeURIComponent(tamu.nama);
 
-        }
+
+            const item =
+                document.createElement("div");
+
+            item.className =
+                "item";
 
 
-        function salinLink(
-            tombol,
-            link
-        ) {
+            item.innerHTML = `
 
-            navigator.clipboard
-                .writeText(link)
-                .then(function() {
+                <div class="nama">
+                    ${index + 1}. ${escapeHTML(tamu.nama)}
+                </div>
 
-                    const teksAwal =
-                        tombol.textContent;
+                <div class="link-box">
 
-                    tombol.textContent =
-                        "Tersalin ✓";
+                    <input
+                        type="text"
+                        value="${link}"
+                        readonly>
 
-                    setTimeout(
-                        function() {
+                    <button
+                        onclick="salinLink(this, '${link.replace(/'/g, "\\'")}')">
+                        Salin Link
+                    </button>
 
-                            tombol.textContent =
-                                teksAwal;
+                    <button
+                        onclick="kirimWhatsApp('${encodeURIComponent(tamu.nama)}', '${link.replace(/'/g, "\\'")}', '${tamu.nomor}')">
+                        Kirim WhatsApp
+                    </button>
 
-                        },
-                        1500
-                    );
+                </div>
 
-                })
-                .catch(function() {
+            `;
 
-                    alert(
-                        "Link gagal disalin. Silakan salin secara manual."
-                    );
 
-                });
+            hasil.appendChild(item);
 
         }
-function kirimWhatsApp(nama, link) {
+    );
 
-    const namaAsli = decodeURIComponent(nama);
+}
+
+
+function kirimWhatsApp(nama, link, nomor) {
+
+    const namaAsli =
+        decodeURIComponent(nama);
+
+    let nomorWhatsApp =
+        nomor.replace(/\D/g, "");
+
+    // Jika nomor diawali 0, ubah menjadi 62
+    if (nomorWhatsApp.startsWith("0")) {
+
+        nomorWhatsApp =
+            "62" +
+            nomorWhatsApp.substring(1);
+
+    }
 
     const pesan =
-        "Assalamu'alaikum " + namaAsli + ",\n\n" +
+        "Assalamu'alaikum " +
+        namaAsli +
+        ",\n\n" +
 
         "Dengan penuh kebahagiaan, kami bermaksud mengundang " +
         namaAsli +
@@ -418,9 +406,13 @@ function kirimWhatsApp(nama, link) {
 
         "Wassalamu'alaikum warahmatullahi wabarakatuh";
 
+
     const url =
-        "https://wa.me/?text=" +
+        "https://wa.me/" +
+        nomorWhatsApp +
+        "?text=" +
         encodeURIComponent(pesan);
+
 
     window.open(url, "_blank");
 
