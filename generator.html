@@ -393,24 +393,30 @@ Keluarga Bapak Fulan"></textarea>
         }
 function kirimWhatsApp(nama, link) {
 
+    const namaAsli = decodeURIComponent(nama);
+
     const pesan =
-        "Assalamu'alaikum " +
-        decodeURIComponent(nama) +
-        ",%0A%0A" +
+        "Assalamu'alaikum " + namaAsli + ",\n\n" +
 
-        "Dengan penuh kebahagiaan, kami mengundang " +
-        decodeURIComponent(nama) +
-        " untuk hadir dalam acara Walimatul Ursy Zain & Luthfia.%0A%0A" +
+        "Dengan penuh kebahagiaan, kami bermaksud mengundang " +
+        namaAsli +
+        " untuk berkenan hadir dalam acara Walimatul Ursy Zain & Luthfia.\n\n" +
 
-        "Silakan membuka undangan melalui link berikut:%0A" +
+        "📅 Senin, 7 Desember 2026\n" +
+        "🕐 08.00–09.00 WIB\n" +
+        "📍 Kediaman Mempelai Wanita, Gendungan RT 02/RW 06, Tawangsari, Sukoharjo\n\n" +
+
+        "Untuk informasi lengkap mengenai acara, silakan membuka undangan melalui link berikut:\n" +
         link +
-        "%0A%0A" +
+        "\n\n" +
 
-        "Jazakumullahu khairan.%0A" +
+        "Jazakumullahu khairan atas perhatian dan kehadirannya.\n\n" +
+
         "Wassalamu'alaikum warahmatullahi wabarakatuh";
 
     const url =
-        "https://wa.me/?text=" + pesan;
+        "https://wa.me/?text=" +
+        encodeURIComponent(pesan);
 
     window.open(url, "_blank");
 
