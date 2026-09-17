@@ -236,12 +236,16 @@ Keluarga Bapak Fulan"></textarea>
         <div class="button-container">
 
             <button onclick="buatSemuaLink()">
-                Buat Semua Link
-            </button>
+    Buat Semua Link
+</button>
 
-            <button onclick="hapusSemua()">
-                Hapus
-            </button>
+<button onclick="salinSemuaLink()">
+    Salin Semua Link
+</button>
+
+<button onclick="hapusSemua()">
+    Hapus
+</button>
 
         </div>
 
@@ -421,7 +425,54 @@ function kirimWhatsApp(nama, link) {
     window.open(url, "_blank");
 
 }
+// =========================
+// SALIN SEMUA LINK
+// =========================
 
+function salinSemuaLink() {
+
+    const hasil =
+        document.getElementById("hasil");
+
+    const inputLink =
+        hasil.querySelectorAll(".link-box input");
+
+    if (inputLink.length === 0) {
+
+        alert(
+            "Belum ada link yang dibuat."
+        );
+
+        return;
+    }
+
+    let semuaLink = "";
+
+    inputLink.forEach(function(input) {
+
+        semuaLink +=
+            input.value + "\n";
+
+    });
+
+    navigator.clipboard
+        .writeText(semuaLink)
+        .then(function() {
+
+            alert(
+                "Semua link berhasil disalin!"
+            );
+
+        })
+        .catch(function() {
+
+            alert(
+                "Link gagal disalin. Silakan salin secara manual."
+            );
+
+        });
+
+}
         function hapusSemua() {
 
             document.getElementById(
