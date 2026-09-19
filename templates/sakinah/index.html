@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        ZAFIZA INVITATION | Wedding Syar'i
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         COVER
+    ========================== -->
+
+    <section
+        id="cover"
+        class="cover"
+    >
+
+        <div class="cover-content">
+
+            <p class="brand">
+                ZAFIZA INVITATION
+            </p>
+
+            <p class="tagline">
+                Wedding Syar'i
+            </p>
+
+            <p class="kepada">
+    <span id="sapaanTamu"></span><br>
+
+    <span id="namaTamu">
+        Bapak/Ibu/Saudara/i
+    </span>
+</p>
+
+            <button
+                onclick="bukaUndangan()"
+            >
+                Buka Undangan
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ISI UNDANGAN
+    ========================== -->
+
+    <main
+        id="isiUndangan"
+        style="display: none;"
+    >
+
+
+        <!-- MEMPELAI -->
+
+        <section
+            class="section mempelai"
+        >
+
+            <p class="brand">
+                ZAFIZA INVITATION
+            </p>
+
+            <p class="tagline">
+                Wedding Syar'i
+            </p>
+
+            <h1>
+                Zain
+                <span>&</span>
+                Luthfia
+            </h1>
+<div class="foto-mempelai">
+
+    <img
+    id="fotoPria"
+    src=""
+    alt="Foto Mempelai Pria"
+>
+
+    <span>&</span>
+
+    <img
+    id="fotoWanita"
+    src=""
+    alt="Foto Mempelai Wanita"
+>
+
+</div>
+            <p id="teksPembuka">
+</p>
+
+        </section>
+
+
+
+        <!-- AYAT -->
+
+        <section
+            class="section ayat"
+        >
+
+            <p class="arab">
+                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ
+                مِنْ أَنْفُسِكُمْ أَزْوَاجًا
+                لِتَسْكُنُوا إِلَيْهَا
+                وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
+            </p>
+
+            <p id="ayatUndangan">
+</p>
+
+            <small id="suratAyat">
+</small>
+
+        </section>
+
+
+
+        <!-- AKAD -->
+
+        <section
+            class="section acara"
+        >
+
+            <h2 id="jenisAcara">
+</h2>
+
+            <h3>
+           <span id="namaPria"></span>
+<br>
+&
+<br>
+<span id="namaWanita"></span>
+            </h3>
+
+<div class="orang-tua">
+
+    <p>
+        Putra dari
+        <strong id="orangTuaPria"></strong>
+    </p>
+
+    <p>
+        Putri dari
+        <strong id="orangTuaWanita"></strong>
+    </p>
+
+</div>
+            <p id="tanggalAcara">
+</p>
+
+<p id="waktuAcara">
+</p>
+             <p id="lokasiAcara">
+</p>
+
+<p id="alamatAcara">
+</p>
+
+            <a
+    id="tombolMaps"
+    href="#"
+    target="_blank"
+    class="maps-button"
+>
+    Lihat Lokasi
+</a>
+
+        </section>
+
+
+
+        <!-- COUNTDOWN -->
+
+        <section
+            class="section countdown-section"
+        >
+
+            <h2>
+                Menuju Hari Bahagia
+            </h2>
+
+            <div
+                id="countdown"
+                class="countdown"
+            >
+
+                <div>
+                    <span id="hari">
+                        0
+                    </span>
+
+                    <small>
+                        Hari
+                    </small>
+                </div>
+
+                <div>
+                    <span id="jam">
+                        0
+                    </span>
+
+                    <small>
+                        Jam
+                    </small>
+                </div>
+
+                <div>
+                    <span id="menit">
+                        0
+                    </span>
+
+                    <small>
+                        Menit
+                    </small>
+                </div>
+
+                <div>
+                    <span id="detik">
+                        0
+                    </span>
+
+                    <small>
+                        Detik
+                    </small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RSVP -->
+
+        <section
+            class="section rsvp"
+        >
+
+            <h2>
+                Konfirmasi Kehadiran
+            </h2>
+
+            <p>
+                Mohon konfirmasi kehadiran
+                melalui WhatsApp.
+            </p>
+
+            <a
+    id="tombolRSVP"
+    href="#"
+    target="_blank"
+    class="button"
+>
+    Konfirmasi Kehadiran
+</a>
+
+        </section>
+
+
+
+        <!-- GALERI -->
+
+        <section
+            class="section galeri"
+        >
+
+           <h2>
+    Galeri
+</h2>
+
+<div class="gallery">
+
+    <img
+        class="fotoGaleri"
+        src=""
+        alt="Galeri 1"
+    >
+
+    <img
+        class="fotoGaleri"
+        src=""
+        alt="Galeri 2"
+    >
+
+    <img
+        class="fotoGaleri"
+        src=""
+        alt="Galeri 3"
+    >
+
+    <img
+        class="fotoGaleri"
+        src=""
+        alt="Galeri 4"
+    >
+
+</div>
+
+<!-- LIGHTBOX -->
+
+<div
+    id="lightbox"
+    class="lightbox"
+    onclick="tutupLightbox()"
+>
+
+    <span class="close-lightbox">
+        &times;
+    </span>
+
+    <img
+        id="gambarBesar"
+        src=""
+        alt="Foto"
+    >
+
+</div>
+        </section>
+
+
+
+        <!-- AMPLOP DIGITAL -->
+
+        <section
+            class="section amplop"
+        >
+
+            <h2>
+                Amplop Digital
+            </h2>
+
+            <p>
+                Doa dan restu Bapak/Ibu/Saudara/i
+                merupakan kebahagiaan bagi kami.
+            </p>
+
+            <p>
+                Bagi yang berkenan memberikan tanda kasih,
+                dapat melalui:
+            </p>
+
+            
+            <h3 id="namaBank">
+</h3>
+
+<p id="pemilikRekening">
+</p>
+
+<p>
+    <strong id="nomorRekening">
+    </strong>
+</p>
+            <button
+                onclick="salinRekening()"
+            >
+                Salin Rekening
+            </button>
+
+        </section>
+
+
+
+        <!-- UCAPAN -->
+
+        <section
+            class="section ucapan"
+        >
+
+            <h2>
+                Ucapan & Doa
+            </h2>
+
+            <input
+                type="text"
+                id="namaUcapan"
+                placeholder="Nama"
+            >
+
+            <textarea
+                id="isiUcapan"
+                placeholder="Tuliskan ucapan dan doa..."
+            ></textarea>
+
+            <button
+                onclick="kirimUcapan()"
+            >
+                Kirim Ucapan
+            </button>
+
+        </section>
+
+
+
+        <!-- DAFTAR UCAPAN -->
+
+        <section
+            class="section daftar-ucapan"
+        >
+
+            <h2>
+                Ucapan dari Para Tamu
+            </h2>
+
+            <div id="daftarUcapan">
+                Memuat ucapan...
+            </div>
+
+        </section>
+
+
+
+        <!-- PENUTUP -->
+
+        <section
+            class="section penutup"
+        >
+
+            <h2>
+                Jazakumullahu Khairan
+            </h2>
+
+            <p>
+                Terima kasih atas doa,
+                perhatian, dan kehadiran
+                Bapak/Ibu/Saudara/i
+                dalam hari bahagia kami.
+            </p>
+
+            <p>
+                Semoga Allah SWT memberikan
+                keberkahan kepada kita semua.
+            </p>
+
+            <h3>
+                Zain & Luthfia
+            </h3>
+
+            <p>
+                Wassalamu'alaikum
+                warahmatullahi wabarakatuh
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- MUSIK -->
+
+    <audio
+        id="musik"
+        loop
+    >
+        <source
+    id="sumberMusik"
+    src=""
+    type="audio/mpeg"
+>
+    </audio>
+
+<button
+    id="tombolMusik"
+    class="tombol-musik"
+    onclick="toggleMusik()"
+>
+    🎵
+</button>
+
+    <script
+        src="script.js"
+    ></script>
+
+
+</body>
+
+</html>
