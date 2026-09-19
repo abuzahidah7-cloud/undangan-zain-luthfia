@@ -1,0 +1,766 @@
+/* =========================
+   ZAFIZA INVITATION
+   TEMPLATE SAKINAH
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f4e9,
+            #eef2e7
+        );
+
+    color: #304536;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   UMUM
+   ========================= */
+
+.section {
+    min-height: 80vh;
+
+    padding: 80px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: normal;
+}
+
+h2 {
+    margin-bottom: 25px;
+
+    color: #526b56;
+
+    font-size: 32px;
+}
+
+p {
+    max-width: 650px;
+}
+
+
+/* =========================
+   BRAND
+   ========================= */
+
+.brand {
+    font-size: 15px;
+
+    letter-spacing: 4px;
+
+    color: #9a7938;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+.tagline {
+    margin-top: -5px;
+
+    color: #526b56;
+
+    font-size: 14px;
+
+    font-style: italic;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   COVER
+   ========================= */
+
+.cover {
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.95),
+            transparent 50%
+        ),
+
+        linear-gradient(
+            135deg,
+            #eef2e7,
+            #f7f4e9
+        );
+}
+
+.cover-content {
+    width: min(90%, 600px);
+
+    padding: 60px 30px;
+
+    border: 1px solid rgba(154,121,56,0.35);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    box-shadow:
+        0 20px 50px rgba(48,69,54,0.10);
+}
+
+.cover .brand {
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+.cover .tagline {
+    margin-bottom: 60px;
+}
+
+.kepada {
+    margin-bottom: 30px;
+
+    color: #526b56;
+}
+
+#namaTamu {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    font-weight: bold;
+
+    color: #304536;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+button,
+.maps-button,
+.button {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    border: 1px solid #9a7938;
+
+    border-radius: 30px;
+
+    background:
+        #526b56;
+
+    color: white;
+
+    font-family: inherit;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover,
+.maps-button:hover,
+.button:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* =========================
+   MEMPELAI
+   ========================= */
+
+.mempelai {
+    background:
+        rgba(255,255,255,0.55);
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+}
+
+.mempelai h1 {
+    margin: 30px 0;
+
+    font-size: clamp(42px, 8vw, 70px);
+
+    color: #304536;
+}
+
+.mempelai h1 span {
+    display: block;
+
+    color: #9a7938;
+
+    font-size: 30px;
+
+    margin: 5px 0;
+}
+
+.mempelai p {
+    color: #526b56;
+}
+
+
+/* =========================
+   AYAT
+   ========================= */
+
+.ayat {
+    background:
+        linear-gradient(
+            135deg,
+            #526b56,
+            #304536
+        );
+
+    color: white;
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+}
+
+.ayat .arab {
+    max-width: 800px;
+
+    font-size: 27px;
+
+    line-height: 2.2;
+
+    direction: rtl;
+
+    margin-bottom: 30px;
+}
+
+.ayat p:not(.arab) {
+    color: #f7f4e9;
+
+    font-style: italic;
+}
+
+.ayat small {
+    margin-top: 15px;
+
+    color: #d9c58d;
+}
+
+
+/* =========================
+   ACARA
+   ========================= */
+
+.acara {
+    background:
+        rgba(255,255,255,0.7);
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+
+    box-shadow:
+        0 15px 40px rgba(48,69,54,0.08);
+}
+
+.acara h3 {
+    margin-bottom: 25px;
+
+    color: #9a7938;
+
+    font-size: 25px;
+}
+
+.acara p {
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   COUNTDOWN
+   ========================= */
+
+.countdown-section {
+    min-height: 50vh;
+}
+
+.countdown {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.countdown div {
+    width: 90px;
+
+    padding: 18px 10px;
+
+    border-radius: 18px;
+
+    background:
+        #526b56;
+
+    color: white;
+
+    box-shadow:
+        0 10px 25px rgba(48,69,54,0.12);
+}
+
+.countdown span {
+    display: block;
+
+    font-size: 28px;
+
+    color: #f7f4e9;
+}
+
+.countdown small {
+    color: #d9c58d;
+}
+
+
+/* =========================
+   RSVP
+   ========================= */
+
+.rsvp {
+    background:
+        #eef2e7;
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+}
+
+
+/* =========================
+   GALERI
+   ========================= */
+
+.galeri {
+    background:
+        rgba(255,255,255,0.65);
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+
+    padding: 10px;
+}
+
+.gallery {
+    width: min(100%, 850px);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.gallery img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    border: 2px solid
+        rgba(154,121,56,0.35);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 8px 20px
+        rgba(48,69,54,0.15);
+}
+
+
+/* =========================
+   AMPLOP DIGITAL
+   ========================= */
+
+.amplop {
+    background:
+        linear-gradient(
+            135deg,
+            #f7f4e9,
+            #eef2e7
+        );
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+}
+
+.amplop h3 {
+    margin-top: 20px;
+
+    color: #526b56;
+}
+
+.amplop strong {
+    color: #9a7938;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   UCAPAN
+   ========================= */
+
+.ucapan {
+    background:
+        #eef2e7;
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+}
+
+.ucapan input,
+.ucapan textarea {
+    width: min(100%, 600px);
+
+    padding: 13px 15px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid
+        rgba(82,107,86,0.35);
+
+    border-radius: 15px;
+
+    font-family: inherit;
+
+    background: white;
+
+    color: #304536;
+}
+
+.ucapan textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+/* =========================
+   DAFTAR UCAPAN
+   ========================= */
+
+.daftar-ucapan {
+    background:
+        rgba(255,255,255,0.7);
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+}
+
+
+/* =========================
+   PENUTUP
+   ========================= */
+
+.penutup {
+    min-height: 70vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(255,255,255,0.9),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #eef2e7,
+            #f7f4e9
+        );
+
+    border-radius: 30px;
+
+    margin: 25px 15px;
+}
+
+.penutup h2 {
+    color: #526b56;
+}
+
+.penutup h3 {
+    margin-top: 25px;
+
+    color: #9a7938;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: 60px 15px;
+    }
+
+    .cover-content {
+        padding: 50px 20px;
+    }
+
+    .mempelai h1 {
+        font-size: 45px;
+    }
+
+    .ayat .arab {
+        font-size: 22px;
+    }
+
+    .gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .countdown div {
+        width: 75px;
+    }
+
+}/* =========================
+   FOTO MEMPELAI
+   ========================= */
+
+.foto-mempelai {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin: 30px 0;
+}
+
+.foto-mempelai img {
+    width: 150px;
+    height: 190px;
+
+    object-fit: cover;
+
+    border-radius: 80px 80px 20px 20px;
+
+    border: 3px solid var(--warna-emas);
+
+    padding: 4px;
+
+    background: #f7f4e9;
+
+    box-shadow:
+        0 12px 30px rgba(48,69,54,0.15);
+}
+
+.foto-mempelai span {
+    color: #9a7938;
+
+    font-size: 30px;
+
+    font-weight: normal;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .foto-mempelai {
+        gap: 10px;
+    }
+
+    .foto-mempelai img {
+        width: 125px;
+        height: 165px;
+    }
+
+    .foto-mempelai span {
+        font-size: 25px;
+    }
+
+}/* =========================
+   TOMBOL MUSIK
+   ========================= */
+
+.tombol-musik {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--warna-emas);
+
+    background: #526b56;
+
+    color: white;
+
+    font-size: 20px;
+
+    z-index: 999;
+
+    box-shadow:
+        0 8px 20px rgba(48,69,54,0.20);
+}/* =========================
+   GALERI LIGHTBOX
+   ========================= */
+
+.lightbox {
+    display: none;
+
+    position: fixed;
+
+    z-index: 9999;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 30px;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        rgba(48,69,54,0.92);
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    border: 3px solid #d9c58d;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,0.30);
+}
+
+.close-lightbox {
+    position: absolute;
+
+    top: 20px;
+    right: 30px;
+
+    font-size: 45px;
+
+    color: #f7f4e9;
+
+    cursor: pointer;
+
+    line-height: 1;
+}/* =========================
+   KOTAK UCAPAN
+   ========================= */
+
+.kotak-ucapan {
+    width: min(100%, 600px);
+
+    margin-bottom: 15px;
+
+    padding: 18px 20px;
+
+    text-align: left;
+
+    background: #ffffff;
+
+    border-left: 4px solid #9a7938;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 20px rgba(48,69,54,0.08);
+}
+
+.kotak-ucapan strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--warna-utama);
+
+    font-size: 17px;
+}
+
+.kotak-ucapan p {
+    color: #4a5b4d;
+
+    line-height: 1.7;
+}
